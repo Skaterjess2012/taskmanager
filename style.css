@@ -133,3 +133,6 @@ body {
   white-space: nowrap;
   overflow: hidden;
 }
+.container .list .selected {
+  background: blue;
+}
