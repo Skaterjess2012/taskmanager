@@ -123,15 +123,47 @@ body {
   align-items: center;
   padding: 0.2em;
   border-bottom: 0.05em solid #DDDDDD;
+  height: 1.5em;
 }
-.container .list .listItem .checkbox {
-  margin: 1em;
+.container .list .listItem .check {
+  background: red;
+  width: 1.5em;
+  height: 1.5em;
+}
+.container .list .listItem .delete {
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .list .listItem .delete:hover .fa-minus-square {
+  color: red;
+}
+.container .list .listItem .delete .fa-minus-square {
+  color: grey;
+  cursor: pointer;
+}
+.container .list .listItem .text-container {
+  width: 100%;
 }
 .container .list .listItem p {
   margin: 0;
   display: inline;
   white-space: nowrap;
   overflow: hidden;
+}
+.container .list .listItem input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  width: 100%;
+  color: lightblue;
+}
+.container .list ul {
+  padding: 0;
+  list-style-type: none;
 }
 .container .list .selected {
   background: blue;

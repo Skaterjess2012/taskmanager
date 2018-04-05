@@ -30,6 +30,7 @@ function addTask(text) {
 
 function deleteTask(){}
 */
+let priority = 'p4';
 
 $('.priority-button').on('click', function(){
 	$('.priority').slideToggle();
@@ -42,24 +43,46 @@ $('.fa-calendar-alt').on('click', function(){
 });
 
 $('.priority-item').on('click', function(){
-	console.log(this.className());
+	//something with priotirty (i dont really want to do it now)
+});
+
+$(document).on('click', '.listItem p', function(){
+	let curItem = $(this).parent();
+	let text = $(this).text();
+	let inputPlace = $('<input type="text" value="' + text + '">');
+	inputPlace.appendTo(curItem);
+	curItem.find('input').focus();
+	$(this).remove();
+});
+
+$(document).on('keyup', '.listItem input', function(e){
+	let keypressed = e.keyCode;
+	let inputText = $(this);
+	let curItem = $(this).parent();
+	if (keypressed === 13 && inputText.val() !== ""){
+		$('<p>' + inputText.val() + '</p>').appendTo(curItem);
+		$(this).remove();
+	}
 });
 
 $('.taskinput').on('keyup', function(e){
 	let keypressed = e.keyCode;
 	let inputText = $(this);
-	if (keypressed === 15) {}
+	if (keypressed === 13 && inputText.val() !== "") {
+		let item = new task(priority, inputText.val());
+		inputText.val('');
+	}
 });
 
-class addTask {
+class task {
 	constructor(priority, text){
 		this.priority = priority;
 		this.text = text;
 		this.addToList(this.priority, this.text);
 	}
 	addToList(p, t){
-		let p1 = $('.p1'), p2 = $('.p2'), p3 = $('.p3');
-		let listItem = $('<li class="listItem"><p>' + this.text + '</p></input></li>');
+		let p1 = $('.p1'), p2 = $('.p2'), p3 = $('.p3'), p4 = $('.p4');
+		let listItem = $('<li class="listItem"><div class="check"></div><div class="text-container"><p>' + this.text + '</p></div><div class="delete"><i class="fas fa-minus-square"></i></div></input></li>');
 		switch(p) {
 			case 'p1':
 				pi(p1);
@@ -70,6 +93,9 @@ class addTask {
 			case 'p3':
 				pi(p3);
 				break;
+			case 'p4':
+				pi(p4);
+				break;
 		}
 		function pi(pi){
 			listItem.appendTo(pi);
@@ -78,4 +104,3 @@ class addTask {
 		}
 	}
 }
-let item = new addTask('p1', 'test');
