@@ -30,7 +30,7 @@ function addTask(text) {
 
 function deleteTask(){}
 */
-let priority = 'p4';
+let priority = 'p4'; //sets the defualt priority to p4
 
 $('.priority-button').on('click', function(){
 	$('.priority').slideToggle();
@@ -44,6 +44,7 @@ $('.fa-calendar-alt').on('click', function(){
 
 $('.priority-item').on('click', function(){
 	//something with priotirty (i dont really want to do it now)
+	
 });
 
 $(document).on('click', '.listItem p', function(){
@@ -63,6 +64,12 @@ $(document).on('keyup', '.listItem input', function(e){
 		$('<p>' + inputText.val() + '</p>').appendTo(curItem);
 		$(this).remove();
 	}
+});
+
+$(document).on('click', '.listItem .delete', function(){
+	let di = $(this).parent();
+	di.slideUp('fast');
+	//di.remove();
 });
 
 $('.taskinput').on('keyup', function(e){
