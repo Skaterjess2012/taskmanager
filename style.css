@@ -128,7 +128,8 @@ body {
   height: 1.5em;
 }
 .container .list .listItem .check {
-  background: lightslategrey;
+  border: 0.07em solid grey;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
