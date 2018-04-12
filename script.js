@@ -43,8 +43,17 @@ $('.fa-calendar-alt').on('click', function(){
 });
 
 $('.priority-item').on('click', function(){
-	//something with priotirty (i dont really want to do it now)
-	
+	let color;
+	if ($(this).hasClass('priority-level-1')){sP('p1', 'red');}
+	if ($(this).hasClass('priority-level-2')){sP('p2', 'yellow');}
+	if ($(this).hasClass('priority-level-3')){sP('p3', 'lightblue');}
+	if ($(this).hasClass('priority-level-4')){sP('p4', 'grey');}
+	function sP(level, colorType){ //set priotrity
+		priority = level;
+		color = colorType;
+	}
+	$('.priority-button i').css('color', color);
+	$('.priority').slideToggle();
 });
 
 $(document).on('click', '.listItem p', function(){
@@ -101,21 +110,23 @@ class task {
 		this.addToList(this.priority, this.text);
 	}
 	addToList(p, t){
-		let prio = $('.p1'), p2 = $('.p2'), p3 = $('.p3'), p4 = $('.p4');
+		let prio = {p1:$('.p1'), p2:$('.p2'), p3:$('.p3'), p4:$('.p4'), comp:$('.completed')}
 		let listItem = $('<li class="listItem"><div class="check"><i class="fas fa-check"></i></div><div class="text-container"><p>' + this.text + '</p></div><div class="delete"><i class="fas fa-minus-square"></i></div></input></li>');
 		switch(p) {
 			case 'p1':
-				pi(p1);
+				pi(prio.p1);
 				break;
 			case 'p2':
-				pi(p2);
+				pi(prio.p2);
 				break;
 			case 'p3':
-				pi(p3);
+				pi(prio.p3);
 				break;
 			case 'p4':
-				pi(p4);
+				pi(prio.p4);
 				break;
+			case 'comp':
+				pi(prio.comp);
 		}
 		function pi(pi){
 			listItem.appendTo(pi);
