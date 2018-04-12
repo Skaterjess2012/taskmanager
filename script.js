@@ -55,6 +55,13 @@ $(document).on('click', '.listItem p', function(){
 	$(this).remove();
 });
 
+$(document).on('click', '.fa-minus-square', function(){
+	let listItem = $(this).parent().parent();
+	listItem.slideUp('fast', function(){
+		listItem.remove();
+	});
+});
+
 $(document).on('keyup', '.listItem input', function(e){
 	let keypressed = e.keyCode;
 	let inputText = $(this);
