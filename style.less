@@ -1,3 +1,4 @@
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -124,9 +125,23 @@ html, body {
 			border-bottom: 0.05em solid #DDDDDD;
 			height: 1.5em;
 			.check {
-				background: red;
-				width: 1.5em;
-				height: 1.5em;
+				//background: red;
+				background: lightslategrey;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 0.7em;
+				height: 0.7em;
+				&:hover {
+					.fa-check {
+						display: block;
+						color: lightgray;
+					}
+				}
+				.fa-check {
+					font-size: 0.4em;
+					display: none;
+				}
 			}
 			.delete {
 				width: 1.5em;
@@ -146,6 +161,7 @@ html, body {
 			}
 			.text-container {
 				width: 100%;
+				margin: 0 0.2em 0 0.2em;
 			}
 			p {
 				margin: 0;

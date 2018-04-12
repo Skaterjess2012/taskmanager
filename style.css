@@ -126,9 +126,20 @@ body {
   height: 1.5em;
 }
 .container .list .listItem .check {
-  background: red;
-  width: 1.5em;
-  height: 1.5em;
+  background: lightslategrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.7em;
+  height: 0.7em;
+}
+.container .list .listItem .check:hover .fa-check {
+  display: block;
+  color: lightgray;
+}
+.container .list .listItem .check .fa-check {
+  font-size: 0.4em;
+  display: none;
 }
 .container .list .listItem .delete {
   width: 1.5em;
@@ -146,6 +157,7 @@ body {
 }
 .container .list .listItem .text-container {
   width: 100%;
+  margin: 0 0.2em 0 0.2em;
 }
 .container .list .listItem p {
   margin: 0;

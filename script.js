@@ -56,13 +56,6 @@ $(document).on('click', '.listItem p', function(){
 	$(this).remove();
 });
 
-$(document).on('click', '.fa-minus-square', function(){
-	let listItem = $(this).parent().parent();
-	listItem.slideUp('fast', function(){
-		listItem.remove();
-	});
-});
-
 $(document).on('keyup', '.listItem input', function(e){
 	let keypressed = e.keyCode;
 	let inputText = $(this);
@@ -75,8 +68,21 @@ $(document).on('keyup', '.listItem input', function(e){
 
 $(document).on('click', '.listItem .delete', function(){
 	let di = $(this).parent();
-	di.slideUp('fast');
-	//di.remove();
+	di.slideUp('fast', function(){
+		this.remove();
+	});
+});
+
+$(document).on('click', '.check', function(){
+	let itemText = $(this).parent().children().find('p').text();
+	let itemCheck = $(this).children('.fa-check');
+	itemCheck.css('display', 'block');
+	$(this).css('background', 'lightgreen');
+	itemCheck.css('color', 'green');
+	$(this).parent().slideUp('fast', function(){
+		this.remove();
+	});
+	let item = new task(priority, itemText);
 });
 
 $('.taskinput').on('keyup', function(e){
@@ -95,8 +101,8 @@ class task {
 		this.addToList(this.priority, this.text);
 	}
 	addToList(p, t){
-		let p1 = $('.p1'), p2 = $('.p2'), p3 = $('.p3'), p4 = $('.p4');
-		let listItem = $('<li class="listItem"><div class="check"></div><div class="text-container"><p>' + this.text + '</p></div><div class="delete"><i class="fas fa-minus-square"></i></div></input></li>');
+		let prio = $('.p1'), p2 = $('.p2'), p3 = $('.p3'), p4 = $('.p4');
+		let listItem = $('<li class="listItem"><div class="check"><i class="fas fa-check"></i></div><div class="text-container"><p>' + this.text + '</p></div><div class="delete"><i class="fas fa-minus-square"></i></div></input></li>');
 		switch(p) {
 			case 'p1':
 				pi(p1);
