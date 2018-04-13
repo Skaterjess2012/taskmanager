@@ -22,6 +22,8 @@ $('.priority-item').on('click', function(){
 		color = colorType;
 	}
 	$('.priority-button i').css('color', color);
+	//console.log($('.priority-button'));
+	console.log($('.priority-button').children().find('i').toArray());
 	$('.priority').slideToggle();
 });
 

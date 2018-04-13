@@ -76,7 +76,7 @@ body {
   z-index: 1;
 }
 .container .priority {
-  background: blue;
+  background: lightslategrey;
   width: auto;
   height: auto;
   margin-right: 2em;
