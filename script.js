@@ -54,15 +54,10 @@ $(document).on('click', '.listItem .delete', function(){
 });
 
 $(document).on('click', '.check', function(){
-	let itemText = $(this).parent().children().find('p').text();
-	let itemCheck = $(this).children('.fa-check');
-	itemCheck.css('display', 'block');
-	$(this).css('background', 'lightgreen');
-	itemCheck.css('color', 'green');
-	$(this).parent().slideUp('fast', function(){
+	let di = $(this).parent();
+	di.slideUp('fast', function(){
 		this.remove();
-	});
-	let item = new task('comp', itemText);
+	})
 });
 
 $('.taskinput').on('keyup', function(e){
